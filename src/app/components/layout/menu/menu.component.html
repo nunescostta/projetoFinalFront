@@ -1,0 +1,60 @@
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+      body {
+          padding-top: 0px; /* Ajuste para o navbar fixo no topo */
+      }
+      .sidebar {
+          height: 100vh;
+          position: fixed;
+          top: 56px; /* Ajuste para o navbar fixo no topo */
+          left: 0;
+          width: 200px;
+          background-color: #f8f9fa;
+          padding-top: 20px;
+          transition: margin-left 0.3s ease; /* Transição suave para o conteúdo principal */
+      }
+      .content {
+          margin-left: 100px; /* Ajuste para a largura da barra lateral */
+          padding: 8px;
+          width: calc(100% - 200px); /* Largura do conteúdo principal ajustada */
+          transition: margin-left 0.3s ease; /* Transição suave para o conteúdo principal */
+      }
+      @media (max-width: 768px) {
+          .sidebar {
+              margin-left: -200px; /* Esconder a barra lateral em dispositivos menores */
+          }
+          .content {
+              margin-left: 0; /* Ajustar o conteúdo principal para ocupar toda a largura */
+              width: 100%;
+          }
+          .sidebar.show {
+              margin-left: 0; /* Mostrar a barra lateral quando o menu for aberto */
+          }
+      }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/pages/cadastro-clientes"> Cadastro de Clientes </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/pages/consulta-clientes"> Consulta de Cliente </a>
+      </li>
+
+    </ul>
+  
+  </div>
+</nav>

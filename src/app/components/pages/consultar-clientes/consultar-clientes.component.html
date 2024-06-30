@@ -1,0 +1,49 @@
+<div class="content" id="main-content"> 
+<div class="container">
+    <h2>Consultar Clientes</h2>
+
+    <div class="form-row">
+        <input type="text" class="form-control" placeholder="Insira o Nome do Cliente" id="searchInput">
+        <div class="input-group-append">
+            <button class="btn btn-primary mb-4 mt-2" type="button" id="searchButton">Pesquisar</button>
+        </div>
+    </div>
+
+
+    <button class="btn btn-secondary mb-4" (click)="ordenarClientesPorNome()">Ordenar por Nome</button>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>CPF</th>
+                <th>Data de Nascimento</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of clientes">
+                <td>{{c.nome}}</td>
+                <td>{{c.email}}</td>
+                <td>{{c.cpf}}</td>
+                <td>{{c.dataNascimento}}</td>
+                <td>
+                    <button [routerLink]="['/pages/editar-clientes', c.id ]" class="btn btn-primary mr-2"  >Editar</button>
+                    <button class="btn btn-danger " (click)="onDelete(c.id)">Excluir</button>
+                </td>
+            </tr>
+            
+        </tbody>
+        <tr>
+            <td colspan="">
+                Quantidade de Clientes: {{clientes.length}}
+            </td>
+        </tr>
+    </table>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
